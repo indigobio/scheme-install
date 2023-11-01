@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Run from here
+cd "$(dirname "$0")"
+
+git submodule update --init --depth 1 --recursive
+cp -R boot ChezScheme
