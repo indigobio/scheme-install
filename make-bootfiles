@@ -9,10 +9,11 @@ cd "$(dirname "$0")"
 cd ChezScheme
 git submodule update --init --filter=blob:none --recursive
 git clean -fxd
-./configure --force --pb
-make bin/zuo
+./configure --force --nothreads --disable-x11
+make re.boot
+make
 for M in a6le a6osx arm64le arm64osx
-do bin/zuo pb bootquick --host-scheme scheme ${M} # Remove '--host-scheme scheme' to use pb
+do make bootquick XM=${M}
 done
 cd ..
 

@@ -11,7 +11,7 @@ x86_64 Linux and macOS systems.
 ./setup
 cd ChezScheme
 ./configure --force --nothreads # <option> ...
-make kernel
+make kernel --jobs $(getconf _NPROCESSORS_ONLN)
 sudo make install
 ```
 
