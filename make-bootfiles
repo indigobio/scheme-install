@@ -7,13 +7,13 @@ cd "$(dirname "$0")"
 # Build boot files
 
 cd ChezScheme
+git clean -ffxd
 git submodule update --init --filter=blob:none --recursive
-git clean -fxd
 ./configure --force --nothreads --disable-x11
 make re.boot
 make
 for M in a6le a6osx arm64le arm64osx
-do make bootquick XM=${M}
+do make boot XM=${M}
 done
 cd ..
 
